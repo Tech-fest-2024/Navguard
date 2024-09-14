@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
         icon: L.icon({ iconUrl: 'mb.png', iconSize: [40, 40] })
     }).addTo(map);
 
-    // Add neighborhood markers
+    // Add neighborhood marker
     const neighborhoods = {
         'Al Nahda': [25.303810, 55.377176],
         'Al Majaz': [25.325366, 55.388962],
