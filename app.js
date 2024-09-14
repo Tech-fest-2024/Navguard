@@ -129,6 +129,30 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    document.getElementById('emergency').addEventListener('click', () => {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(position => {
+                const { latitude, longitude } = position.coords;
+
+                // Show red marker at user's location
+                L.marker([latitude, longitude], {
+                    icon: L.icon({
+                        iconUrl: 'mr.png', // Red emergency icon
+                        iconSize: [50, 50]
+                    })
+                }).addTo(map);
+
+                alert('Authorites have been alerted the are arriving at your location!!');
+
+            }, () => {
+                alert('Unable to retrieve your location.');
+            });
+        } else {
+            alert('Geolocation is not supported by this browser.');
+        }
+    });
+});
+
     // Handle emergency button
     document.getElementById('emergency').addEventListener('click', () => {
         alert('Emergency button clicked!');
